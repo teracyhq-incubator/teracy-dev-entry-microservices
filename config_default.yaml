@@ -1,0 +1,46 @@
+teracy-dev:
+  # teracy-dev location specification
+  location:
+    git: https://github.com/teracyhq/dev.git
+    branch: v0.6.0-a2
+    sync: true
+
+  # teracy-dev-entry auto update
+  entry_location:
+    git: https://github.com/teracyhq-incubator/teracy-dev-entry-microservices-platform.git
+    branch: develop
+    sync: true
+
+  extensions:
+    # use teracy-dev-core v0.2.0
+    - _id: "0"
+      location:
+        branch: v0.2.0
+      require_version: ">= 0.2.0"
+
+    - _id: "entry-0"
+      path:
+        extension: teracy-dev-essential
+      location:
+        git: https://github.com/teracyhq-incubator/teracy-dev-essential.git
+        branch: develop
+      require_version: ">= 0.1.0-SNAPSHOT"
+      enabled: true
+
+    - _id: "entry-1"
+      path:
+        extension: teracy-dev-k8s
+      location:
+        git: https://github.com/teracyhq-incubator/teracy-dev-k8s.git
+        branch: v0.1.0
+      require_version: ">= 0.1.0, < 0.2.0"
+      enabled: true
+
+    - _id: "entry-2"
+      path:
+        extension: teracy-dev-microservices-platform
+      location:
+        git: https://github.com/teracyhq-incubator/teracy-dev-microservices-platform.git
+        branch: develop
+      require_version: ">= 0.1.0-SNAPSHOT"
+      enabled: true
